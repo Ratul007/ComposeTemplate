@@ -120,22 +120,12 @@ fun layoutData(){
             item {
                 CardView(title = "Tree", subtitle = "Apple", onClick = {
                     context.startActivity(Intent(context, MainActivity2::class.java))
-                    Toast.makeText(
-                        context,
-                        "You just clicked Tree Layout",
-                        Toast.LENGTH_LONG
-                    ).show()
                 })
                 Spacer(modifier = Modifier.height(20.dp))
             }
             item {
                 CardView(title = "Animal", subtitle = "Ape", onClick = {
                     context.startActivity(Intent(context, MainActivity3::class.java))
-                    Toast.makeText(
-                        context,
-                        "You just clicked Animal Layout",
-                        Toast.LENGTH_LONG
-                    ).show()
                 })
                 Spacer(modifier = Modifier.height(20.dp))
             }
