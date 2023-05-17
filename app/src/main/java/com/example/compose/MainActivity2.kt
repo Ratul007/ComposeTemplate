@@ -204,9 +204,9 @@ private fun postDataUsingRetrofit(
 
     val retrofit = Retrofit.Builder()
         .baseUrl(url)
-
         .addConverterFactory(GsonConverterFactory.create())
         .build()
+
     val retrofitAPI = retrofit.create(UserApi::class.java)
     val dataModel = DataModel(userName.value.text, job.value.text)
     val call: Call<DataModel?>? = retrofitAPI.postData(dataModel)
