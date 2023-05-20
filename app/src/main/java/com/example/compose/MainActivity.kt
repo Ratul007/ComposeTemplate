@@ -131,7 +131,7 @@ fun layoutData(){
             }
             item {
                 CardView(title = "Sea", subtitle = "Pacific Ocean", onClick = {
-
+                    context.startActivity(Intent(context, MainActivity4::class.java))
                 })
                 Spacer(modifier = Modifier.height(20.dp))
             }

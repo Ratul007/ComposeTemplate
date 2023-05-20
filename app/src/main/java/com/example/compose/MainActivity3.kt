@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.activity.ComponentActivity
+import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -25,13 +26,13 @@ import androidx.navigation.compose.rememberNavController
 import com.example.compose.ui.theme.ComposeTheme
 
 class MainActivity3 : ComponentActivity() {
-    private lateinit var navController: NavController
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            navController = rememberNavController()
-            topAndNavigationBarBackButton(navController)
+
+            topAndNavigationBarBackButton(onBackPressedDispatcher)
         }
     }
 }
@@ -61,13 +62,13 @@ fun DefaultPreview2() {
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun topAndNavigationBarBackButton(navController: NavController) {
+fun topAndNavigationBarBackButton(onBackPressedDispatcher: OnBackPressedDispatcher) {
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text("Compose", color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.Bold) },
                 navigationIcon = {
-                    IconButton(onClick = { navController.popBackStack() }) {
+                    IconButton(onClick = { onBackPressedDispatcher.onBackPressed() }) {
                         Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = Color.White)
                     }
                 },
