@@ -17,7 +17,7 @@
         <activity
             android:name=".MainActivity4"
             android:exported="false"
-            android:label="@string/title_activity_main4"
+            android:label="title_activity_main4"
             android:theme="@style/Theme.Compose">
             <meta-data
                 android:name="android.app.lib_name"
