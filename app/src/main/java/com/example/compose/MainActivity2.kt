@@ -17,9 +17,12 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -52,7 +55,7 @@ class MainActivity2 : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.secondary,
                 ) {
-                    NewCanaryProjectTheme()
+                    NewCanaryProjectTheme(onBackPressedDispatcher)
                 }
             }
         }
@@ -69,7 +72,7 @@ data class DataModel(
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun NewCanaryProjectTheme (){
+fun NewCanaryProjectTheme (onBackPressedDispatcher: OnBackPressedDispatcher){
     Surface(
         modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
     ) {
@@ -77,9 +80,7 @@ fun NewCanaryProjectTheme (){
             topBar = {
 
                 TopAppBar(backgroundColor = Color(android.graphics.Color.parseColor("#D81B60")),
-
                     title = {
-
                         Text(
                             text = "Retrofit POST Request in Android",
 
@@ -89,7 +90,12 @@ fun NewCanaryProjectTheme (){
 
                             color = Color.White
                         )
-                    })
+                    },
+                    navigationIcon = {
+                        IconButton(onClick = { onBackPressedDispatcher.onBackPressed() }) {
+                            Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = Color.White)
+                        }
+                    },)
             }) {
             postData()
         }

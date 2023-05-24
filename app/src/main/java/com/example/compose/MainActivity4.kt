@@ -4,9 +4,12 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
+import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -16,11 +19,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.compose.controller.customButtonColors
+import com.example.compose.controller.customTextFieldColors
 import com.example.compose.ui.theme.ComposeTheme
 import com.example.compose.ui.theme.Purple700
 import retrofit2.Call
@@ -39,7 +45,7 @@ class MainActivity4 : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MainScreen()
+                    MainScreen(onBackPressedDispatcher)
                 }
             }
         }
@@ -58,11 +64,11 @@ data class UserModel(
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun MainScreen() {
+fun MainScreen(onBackPressedDispatcher: OnBackPressedDispatcher) {
     Scaffold(
         topBar = {
             TopAppBar(
-                backgroundColor = Purple700,
+                backgroundColor = Color(android.graphics.Color.parseColor("#D81B60")),
                 title = {
                     Text(
                         text = "Simple API Request",
@@ -70,63 +76,120 @@ fun MainScreen() {
                         textAlign = TextAlign.Center,
                         color = Color.White
                     )
+                },
+                navigationIcon = {
+                    IconButton(onClick = { onBackPressedDispatcher.onBackPressed() }) {
+                        Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = Color.White)
+                    }
                 }
             )
         },
         content = {
+
             Column(
-                modifier = Modifier.fillMaxWidth(),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                val id = remember {
-                    mutableStateOf(TextFieldValue())
-                }
+                modifier = Modifier.fillMaxSize(),
+            ){
+                Column(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
 
-                val profile = remember {
-                    mutableStateOf(ProfileModel(
-                        age = "",
-                        name = "",
-                        email = ""
-                    ))
-                }
-
-                Text(
-                    text="API Sample",
-                    style= TextStyle(
-                        fontSize = 40.sp,
-                        fontFamily = FontFamily.Cursive
-                    )
-                )
-
-                Spacer(modifier = Modifier.height(15.dp))
-
-                TextField(
-                    label = { Text(text = "User ID")},
-                    value = id.value,
-                    onValueChange = { id.value = it }
-                )
-
-                Spacer(modifier = Modifier.height(15.dp))
-
-                Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp)) {
-                    Button(
-                        onClick = {
-                            val data = sendRequest(
-                                id = id.value.text,
-                                profileState = profile
-                            )
-
-                            Log.d("Main Activity", profile.toString())
-                        }
-                    ) {
-                        Text(text = "Get Data")
+                ) {
+                    val id = remember {
+                        mutableStateOf(TextFieldValue())
                     }
+
+                    val profile = remember {
+                        mutableStateOf(ProfileModel(
+                            age = "",
+                            name = "",
+                            email = ""
+                        ))
+                    }
+
+                    Text(
+                        text = "Sea",
+                        color = Color(android.graphics.Color.parseColor("#D81B60")),
+                        style = androidx.compose.material.MaterialTheme.typography.h3,
+                        fontFamily = FontFamily.Default,
+                        fontWeight = FontWeight.Bold, textAlign = TextAlign.Center
+                    )
+
+                    Spacer(modifier = Modifier.height(15.dp))
+
+
+                    TextField(
+                        value = id.value,
+                        onValueChange = { id.value = it },
+                        placeholder = { Text(text = "User ID") },
+                        modifier = Modifier
+                            .padding(16.dp)
+                            .fillMaxWidth(),
+                        textStyle = TextStyle(color = Color.Black, fontSize = 15.sp),
+                        singleLine = true,
+                        colors = customTextFieldColors()
+                    )
+
+                    Spacer(modifier = Modifier.height(15.dp))
+
+                    Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp)) {
+                        Button(
+                            colors = customButtonColors(),
+                            onClick = {
+                                val data = sendRequest(
+                                    id = id.value.text,
+                                    profileState = profile
+                                )
+
+                                Log.d("Main Activity", profile.toString())
+                            },
+                        ) {
+                            Text(text = "Get Data", modifier = Modifier.padding(8.dp))
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(15.dp))
+
+                    // Text(text = profile.component1().toString(), fontSize = 40.sp)
                 }
 
-                Spacer(modifier = Modifier.height(15.dp))
+                Column(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth()
+                        .padding(16.dp)
+                ){
 
-                Text(text = profile.component1().toString(), fontSize = 40.sp)
+                    val profile = remember {
+                        mutableStateOf(ProfileModel(
+                            age = "",
+                            name = "",
+                            email = ""
+                        ))
+                    }
+
+                    Text(
+                        text = "Age: ${profile.value.age}",
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold,
+                        color =  Color(android.graphics.Color.parseColor("#D81B60"))
+                    )
+                    Text(
+                        text = "Name: ${profile.value.name}",
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold,
+                        color =  Color(android.graphics.Color.parseColor("#D81B60"))
+                    )
+                    Text(
+                        text = "Email: ${profile.value.email}",
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(android.graphics.Color.parseColor("#D81B60"))
+                    )
+                }
             }
         }
     )
