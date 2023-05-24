@@ -1,28 +1,19 @@
-package com.example.compose
+package com.example.compose.controller
 
-import android.annotation.SuppressLint
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.ui.unit.dp
-import com.example.compose.ui.theme.ComposeTheme
 import android.content.Context
-import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.Toast
-import androidx.activity.ComponentActivity
-import androidx.activity.OnBackPressedDispatcher
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Button
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
+import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -36,85 +27,18 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.compose.ui.theme.Purple700
-import retrofit2.*
+import com.example.compose.view.DataModel
+import com.example.compose.model.UserApi
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
-class MainActivity2 : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-
-
-            ComposeTheme {
-
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.secondary,
-                ) {
-                    NewCanaryProjectTheme(onBackPressedDispatcher)
-                }
-            }
-        }
-    }
-}
-
-
-
-
-data class DataModel(
-    var name: String,
-    var job: String
-)
-
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
-@Composable
-fun NewCanaryProjectTheme (onBackPressedDispatcher: OnBackPressedDispatcher){
-    Surface(
-        modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
-    ) {
-        Scaffold(
-            topBar = {
-
-                TopAppBar(backgroundColor = Color(android.graphics.Color.parseColor("#D81B60")),
-                    title = {
-                        Text(
-                            text = "Retrofit POST Request in Android",
-
-                            modifier = Modifier.fillMaxWidth(),
-
-                            textAlign = TextAlign.Center,
-
-                            color = Color.White
-                        )
-                    },
-                    navigationIcon = {
-                        IconButton(onClick = { onBackPressedDispatcher.onBackPressed() }) {
-                            Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = Color.White)
-                        }
-                    },)
-            }) {
-            postData()
-        }
-    }
-}
-
-
 
 @Composable
 fun postData() {
-
-    val customTextFieldColors = TextFieldDefaults.textFieldColors(
-        focusedIndicatorColor = Color(android.graphics.Color.parseColor("#D81B60"))
-    )
-
-    val customButtonColors = ButtonDefaults.buttonColors(
-        backgroundColor = Color(android.graphics.Color.parseColor("#D81B60")),
-        contentColor = Color.White
-    )
 
     val ctx = LocalContext.current
 
@@ -139,7 +63,7 @@ fun postData() {
         Text(
             text = "Tree",
             color = Color(android.graphics.Color.parseColor("#D81B60")),
-            style = androidx.compose.material.MaterialTheme.typography.h3,
+            style = MaterialTheme.typography.h3,
             fontFamily = FontFamily.Default,
             fontWeight = FontWeight.Bold, textAlign = TextAlign.Center
         )
@@ -151,9 +75,9 @@ fun postData() {
             modifier = Modifier
                 .padding(16.dp)
                 .fillMaxWidth(),
-            textStyle = TextStyle(color = Color.Black, fontSize = 15.sp),
+            textStyle = TextStyle(color = androidx.compose.ui.graphics.Color.Black, fontSize = 15.sp),
             singleLine = true,
-            colors = customTextFieldColors
+            colors = customTextFieldColors()
         )
         Spacer(modifier = Modifier.height(5.dp))
         TextField(
@@ -166,14 +90,14 @@ fun postData() {
             modifier = Modifier
                 .padding(16.dp)
                 .fillMaxWidth(),
-            textStyle = TextStyle(color = Color.Black, fontSize = 15.sp),
+            textStyle = TextStyle(color = androidx.compose.ui.graphics.Color.Black, fontSize = 15.sp),
             singleLine = true,
-            colors = customTextFieldColors
+            colors = customTextFieldColors()
         )
 
         Spacer(modifier = Modifier.height(10.dp))
         Button(
-            colors = customButtonColors,
+            colors = customButtonColors(),
             onClick = {
                 postDataUsingRetrofit(
                     ctx, userName, job, response
@@ -188,7 +112,7 @@ fun postData() {
         Spacer(modifier = Modifier.height(20.dp))
         Text(
             text = response.value,
-            color = Color.Black,
+            color = androidx.compose.ui.graphics.Color.Black,
             fontSize = 20.sp,
             fontWeight = FontWeight.Bold, modifier = Modifier
                 .padding(10.dp)
@@ -197,7 +121,6 @@ fun postData() {
         )
     }
 }
-
 
 
 private fun postDataUsingRetrofit(

@@ -1,15 +1,17 @@
-package com.example.compose
+package com.example.compose.view
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.navigation.NavController
 import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
@@ -19,10 +21,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import androidx.navigation.compose.rememberNavController
 import com.example.compose.ui.theme.ComposeTheme
 
 class MainActivity3 : ComponentActivity() {
@@ -51,15 +54,6 @@ fun Greeting2(name: String) {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview2() {
-    ComposeTheme {
-        Greeting2("Android")
-    }
-}
-
-
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun topAndNavigationBarBackButton(onBackPressedDispatcher: OnBackPressedDispatcher) {
@@ -76,7 +70,27 @@ fun topAndNavigationBarBackButton(onBackPressedDispatcher: OnBackPressedDispatch
             )
         }
     ) {
-        Greeting2(name = "Animal")
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = "Animal",
+                color = Color(android.graphics.Color.parseColor("#D81B60")),
+                style = MaterialTheme.typography.h3,
+                fontFamily = FontFamily.Default,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center
+            )
+        }
     }
 }
+
+
+
+
+
+
+
 

@@ -1,4 +1,4 @@
-package com.example.compose
+package com.example.compose.controller
 
 
 import androidx.compose.material.*
@@ -7,6 +7,7 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import com.example.compose.R
 
 @Composable
 fun AppBar(

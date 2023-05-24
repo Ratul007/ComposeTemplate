@@ -1,4 +1,4 @@
-package com.example.compose
+package com.example.compose.view
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -11,7 +11,6 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -22,18 +21,13 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.compose.controller.customButtonColors
 import com.example.compose.controller.customTextFieldColors
+import com.example.compose.controller.sendRequest
+import com.example.compose.model.ProfileModel
 import com.example.compose.ui.theme.ComposeTheme
-import com.example.compose.ui.theme.Purple700
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity4 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,16 +45,6 @@ class MainActivity4 : ComponentActivity() {
         }
     }
 }
-
-data class ProfileModel(
-    var age: String,
-    var name: String,
-    var email: String,
-)
-
-data class UserModel(
-    var profile: ProfileModel
-)
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
@@ -103,11 +87,13 @@ fun MainScreen(onBackPressedDispatcher: OnBackPressedDispatcher) {
                     }
 
                     val profile = remember {
-                        mutableStateOf(ProfileModel(
+                        mutableStateOf(
+                            ProfileModel(
                             age = "",
                             name = "",
                             email = ""
-                        ))
+                        )
+                        )
                     }
 
                     Text(
@@ -196,29 +182,3 @@ fun MainScreen(onBackPressedDispatcher: OnBackPressedDispatcher) {
 }
 
 
-fun sendRequest(
-    id: String,
-    profileState: MutableState<ProfileModel>
-) {
-    val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.43.232:3000/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-
-    val api = retrofit.create(UserApiSea::class.java)
-
-    val call: Call<UserModel?>? = api.getUserById(id);
-
-    call!!.enqueue(object: Callback<UserModel?> {
-        override fun onResponse(call: Call<UserModel?>, response: Response<UserModel?>) {
-            if(response.isSuccessful) {
-                Log.d("Main", "success!" + response.body().toString())
-                profileState.value = response.body()!!.profile
-            }
-        }
-
-        override fun onFailure(call: Call<UserModel?>, t: Throwable) {
-            Log.e("Main", "Failed mate " + t.message.toString())
-        }
-    })
-}
