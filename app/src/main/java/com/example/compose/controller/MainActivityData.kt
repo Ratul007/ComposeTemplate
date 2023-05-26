@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import com.example.compose.view.MainActivity2
 import com.example.compose.view.MainActivity3
 import com.example.compose.view.MainActivity4
+import com.example.compose.view.MainActivity5
 
 @Composable
 fun layoutData(){
@@ -63,7 +64,7 @@ fun layoutData(){
             }
             item {
                 CardView(title = "River", subtitle = "Nil", onClick = {
-
+                    context.startActivity(Intent(context, MainActivity5::class.java))
                 })
                 Spacer(modifier = Modifier.height(20.dp))
             }

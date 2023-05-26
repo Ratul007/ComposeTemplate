@@ -3,4 +3,9 @@
     <string name="title_activity_main3">MainActivity3</string>
     <string name="title_activity_menu_item">MenuItem</string>
     <string name="title_activity_main4">MainActivity4</string>
+    <string name="title_activity_main5">MainActivity5</string>
+    <string name="title_activity_favorite">FavoriteActivity</string>
+    <string name="title_activity_person">PersonActivity</string>
+    <string name="title_activity_list">ListActivity</string>
+    <string name="title_activity_main_activity5.kt">MainActivity5.kt</string>
 </resources>

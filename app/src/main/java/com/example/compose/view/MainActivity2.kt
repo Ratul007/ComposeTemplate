@@ -58,7 +58,7 @@ fun NewCanaryProjectTheme (onBackPressedDispatcher: OnBackPressedDispatcher){
                 TopAppBar(backgroundColor = Color(android.graphics.Color.parseColor("#D81B60")),
                     title = {
                         Text(
-                            text = "Retrofit POST Request in Android",
+                            text = "Compose",
 
                             modifier = Modifier.fillMaxWidth(),
 

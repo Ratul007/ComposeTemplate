@@ -55,7 +55,7 @@ fun MainScreen(onBackPressedDispatcher: OnBackPressedDispatcher) {
                 backgroundColor = Color(android.graphics.Color.parseColor("#D81B60")),
                 title = {
                     Text(
-                        text = "Simple API Request",
+                        text = "Compose",
                         modifier = Modifier.fillMaxWidth(),
                         textAlign = TextAlign.Center,
                         color = Color.White
