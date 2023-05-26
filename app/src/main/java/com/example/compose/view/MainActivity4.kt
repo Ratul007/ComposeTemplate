@@ -27,7 +27,6 @@ import com.example.compose.controller.customButtonColors
 import com.example.compose.controller.customTextFieldColors
 import com.example.compose.controller.sendRequest
 import com.example.compose.model.ProfileModel
-import com.example.compose.ui.theme.ComposeTheme
 
 class MainActivity4 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,7 +56,6 @@ fun MainScreen(onBackPressedDispatcher: OnBackPressedDispatcher) {
                     Text(
                         text = "Compose",
                         modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Center,
                         color = Color.White
                     )
                 },
