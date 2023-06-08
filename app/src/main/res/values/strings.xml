@@ -8,4 +8,5 @@
     <string name="title_activity_person">PersonActivity</string>
     <string name="title_activity_list">ListActivity</string>
     <string name="title_activity_main_activity5.kt">MainActivity5.kt</string>
+    <string name="title_activity_splash_screen1">SplashScreen1</string>
 </resources>

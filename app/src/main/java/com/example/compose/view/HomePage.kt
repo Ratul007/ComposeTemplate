@@ -52,7 +52,7 @@ fun topAndNavigationBar() {
         },
         content = {
 
-                  layoutData()
+            layoutData()
 
         },
 
