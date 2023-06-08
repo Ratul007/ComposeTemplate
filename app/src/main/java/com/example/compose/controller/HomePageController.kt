@@ -45,37 +45,37 @@ fun layoutData(){
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             item {
-                CardView(title = "Tree", subtitle = "Apple", onClick = {
+                CardView(title = "A", subtitle = "Post Data", onClick = {
                     context.startActivity(Intent(context, MainActivity2::class.java))
                 })
                 Spacer(modifier = Modifier.height(20.dp))
             }
             item {
-                CardView(title = "Animal", subtitle = "Ape", onClick = {
+                CardView(title = "B", subtitle = "OnBackPress", onClick = {
                     context.startActivity(Intent(context, MainActivity3::class.java))
                 })
                 Spacer(modifier = Modifier.height(20.dp))
             }
             item {
-                CardView(title = "Sea", subtitle = "Pacific Ocean", onClick = {
+                CardView(title = "C", subtitle = "Retrofit Api", onClick = {
                     context.startActivity(Intent(context, MainActivity4::class.java))
                 })
                 Spacer(modifier = Modifier.height(20.dp))
             }
             item {
-                CardView(title = "River", subtitle = "Nil", onClick = {
+                CardView(title = "D", subtitle = "Bottom Navigation", onClick = {
                     context.startActivity(Intent(context, MainActivity5::class.java))
                 })
                 Spacer(modifier = Modifier.height(20.dp))
             }
             item {
-                CardView(title = "Bike", subtitle = "Bajaj", onClick = {
+                CardView(title = "E", subtitle = "Bajaj", onClick = {
 
                 })
                 Spacer(modifier = Modifier.height(20.dp))
             }
             item {
-                CardView(title = "Watch", subtitle = "Casio", onClick = {
+                CardView(title = "F", subtitle = "Casio", onClick = {
 
                 })
                 Spacer(modifier = Modifier.height(20.dp))

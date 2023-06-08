@@ -16,7 +16,6 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextAlign
 import com.example.compose.controller.postData
 import retrofit2.*
 
@@ -57,7 +56,7 @@ fun NewCanaryProjectTheme (onBackPressedDispatcher: OnBackPressedDispatcher){
                 TopAppBar(backgroundColor = Color(android.graphics.Color.parseColor("#D81B60")),
                     title = {
                         Text(
-                            text = "Compose",
+                            text = "Post Data",
 
                             modifier = Modifier.fillMaxWidth(),
 

@@ -10,11 +10,12 @@ import com.example.compose.R
 
 @Composable
 fun AppBar(
+    title: String,
     onNavigationIconClick: () -> Unit
 ) {
     TopAppBar(
         title = {
-            Text(text = stringResource(id = R.string.app_name))
+            Text(text = title)
         },
         backgroundColor = Color(android.graphics.Color.parseColor("#D81B60")),
         contentColor = MaterialTheme.colors.onPrimary,

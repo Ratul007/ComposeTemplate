@@ -42,7 +42,7 @@ fun topAndNavigationBar() {
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = {
-            com.example.compose.controller.AppBar(
+            com.example.compose.controller.AppBar(title = "HomePage",
                 onNavigationIconClick = {
                     scope.launch {
                         scaffoldState.drawerState.open()

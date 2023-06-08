@@ -6,7 +6,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Icon
@@ -39,26 +38,13 @@ class MainActivity3 : ComponentActivity() {
 }
 
 
-@Composable
-fun Greeting2(name: String) {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        androidx.compose.material.Text(
-            text = "$name!",
-            style = androidx.compose.material.MaterialTheme.typography.h3,
-        )
-    }
-}
-
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun topAndNavigationBarBackButton(onBackPressedDispatcher: OnBackPressedDispatcher) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Compose", color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.Bold) },
+                title = { Text("OnBackPress", color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = { onBackPressedDispatcher.onBackPressed() }) {
                         Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = Color.White)
@@ -74,7 +60,7 @@ fun topAndNavigationBarBackButton(onBackPressedDispatcher: OnBackPressedDispatch
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Animal",
+                text = "OnBackPress",
                 color = Color(android.graphics.Color.parseColor("#D81B60")),
                 style = MaterialTheme.typography.h3,
                 fontFamily = FontFamily.Default,

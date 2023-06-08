@@ -54,7 +54,7 @@ fun MainScreen(onBackPressedDispatcher: OnBackPressedDispatcher) {
                 backgroundColor = Color(android.graphics.Color.parseColor("#D81B60")),
                 title = {
                     Text(
-                        text = "Compose",
+                        text = "***Start 'npm json server start' ",
                         modifier = Modifier.fillMaxWidth(),
                         color = Color.White
                     )
@@ -95,7 +95,7 @@ fun MainScreen(onBackPressedDispatcher: OnBackPressedDispatcher) {
                     }
 
                     Text(
-                        text = "Sea",
+                        text = "Retrofit Api",
                         color = Color(android.graphics.Color.parseColor("#D81B60")),
                         style = androidx.compose.material.MaterialTheme.typography.h3,
                         fontFamily = FontFamily.Default,

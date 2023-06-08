@@ -79,7 +79,7 @@ fun topAndNavigationBarBackButtonNil(onBackPressedDispatcher: OnBackPressedDispa
             TopAppBar(
                 title = {
                     Text(
-                        "Compose",
+                        "Bottom Navigation",
                         color = androidx.compose.ui.graphics.Color.White,
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold
@@ -104,7 +104,7 @@ fun topAndNavigationBarBackButtonNil(onBackPressedDispatcher: OnBackPressedDispa
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Nil",
+                text = "Bottom Navigation",
                 color = Color(android.graphics.Color.parseColor("#D81B60")),
                 style = MaterialTheme.typography.h3,
                 fontFamily = FontFamily.Default,
