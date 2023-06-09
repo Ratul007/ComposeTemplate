@@ -16,19 +16,6 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".view.SplashScreen"
-            android:exported="true"
-            android:label="SplashScreen"
-            android:theme="@style/Theme.Compose" >
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
-        <activity
             android:name=".view.MainActivity5"
             android:exported="false"
             android:label="@string/title_activity_main_activity5.kt"
@@ -75,11 +62,11 @@
             android:name=".view.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Compose">
-            <!-- <intent-filter>
+             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
     </application>
 
