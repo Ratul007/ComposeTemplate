@@ -17,16 +17,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.example.compose.controller.postData
+import com.example.compose.ui.theme.ComposeTheme
+
 import retrofit2.*
 
 class MainActivity2 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
-
-            ComposeTheme {
-
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.secondary,
@@ -36,7 +34,7 @@ class MainActivity2 : ComponentActivity() {
             }
         }
     }
-}
+
 
 
 data class DataModel(

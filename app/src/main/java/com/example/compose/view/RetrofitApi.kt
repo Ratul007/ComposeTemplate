@@ -27,19 +27,18 @@ import com.example.compose.controller.customButtonColors
 import com.example.compose.controller.customTextFieldColors
 import com.example.compose.controller.sendRequest
 import com.example.compose.model.ProfileModel
+import com.example.compose.ui.theme.ComposeTheme
 
 class MainActivity4 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ComposeTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    MainScreen(onBackPressedDispatcher)
-                }
+            // A surface container using the 'background' color from the theme
+            Surface(
+                modifier = Modifier.fillMaxSize(),
+                color = MaterialTheme.colors.background
+            ) {
+                MainScreen(onBackPressedDispatcher)
             }
         }
     }
@@ -61,7 +60,11 @@ fun MainScreen(onBackPressedDispatcher: OnBackPressedDispatcher) {
                 },
                 navigationIcon = {
                     IconButton(onClick = { onBackPressedDispatcher.onBackPressed() }) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = Color.White)
+                        Icon(
+                            Icons.Default.ArrowBack,
+                            contentDescription = "Back",
+                            tint = Color.White
+                        )
                     }
                 }
             )
@@ -70,7 +73,7 @@ fun MainScreen(onBackPressedDispatcher: OnBackPressedDispatcher) {
 
             Column(
                 modifier = Modifier.fillMaxSize(),
-            ){
+            ) {
                 Column(
                     modifier = Modifier
                         .weight(1f)
@@ -87,10 +90,10 @@ fun MainScreen(onBackPressedDispatcher: OnBackPressedDispatcher) {
                     val profile = remember {
                         mutableStateOf(
                             ProfileModel(
-                            age = "",
-                            name = "",
-                            email = ""
-                        )
+                                age = "",
+                                name = "",
+                                email = ""
+                            )
                         )
                     }
 
@@ -145,27 +148,29 @@ fun MainScreen(onBackPressedDispatcher: OnBackPressedDispatcher) {
                         .weight(1f)
                         .fillMaxWidth()
                         .padding(16.dp)
-                ){
+                ) {
 
                     val profile = remember {
-                        mutableStateOf(ProfileModel(
-                            age = "",
-                            name = "",
-                            email = ""
-                        ))
+                        mutableStateOf(
+                            ProfileModel(
+                                age = "",
+                                name = "",
+                                email = ""
+                            )
+                        )
                     }
 
                     Text(
                         text = "Age: ${profile.value.age}",
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
-                        color =  Color(android.graphics.Color.parseColor("#D81B60"))
+                        color = Color(android.graphics.Color.parseColor("#D81B60"))
                     )
                     Text(
                         text = "Name: ${profile.value.name}",
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
-                        color =  Color(android.graphics.Color.parseColor("#D81B60"))
+                        color = Color(android.graphics.Color.parseColor("#D81B60"))
                     )
                     Text(
                         text = "Email: ${profile.value.email}",
