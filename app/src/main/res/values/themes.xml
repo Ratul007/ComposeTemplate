@@ -3,5 +3,6 @@
 
     <style name="Theme.Compose" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:statusBarColor">#D81B60</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 </resources>
