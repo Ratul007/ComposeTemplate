@@ -61,7 +61,7 @@ fun postData() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Tree",
+            text = "Post Data",
             color = Color(android.graphics.Color.parseColor("#D81B60")),
             style = MaterialTheme.typography.h3,
             fontFamily = FontFamily.Default,
