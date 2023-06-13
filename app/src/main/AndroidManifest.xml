@@ -20,21 +20,6 @@
             android:label="@string/title_activity_main_activity5.kt"
             android:theme="@style/Theme.Compose" />
         <activity
-            android:name=".view.ListActivity"
-            android:exported="false"
-            android:label="@string/title_activity_list"
-            android:theme="@style/Theme.Compose" />
-        <activity
-            android:name=".view.PersonActivity"
-            android:exported="false"
-            android:label="@string/title_activity_person"
-            android:theme="@style/Theme.Compose" />
-        <activity
-            android:name=".view.FavoriteActivity"
-            android:exported="false"
-            android:label="@string/title_activity_favorite"
-            android:theme="@style/Theme.Compose" />
-        <activity
             android:name=".view.MainActivity4"
             android:exported="false"
             android:label="title_activity_main4"
@@ -54,7 +39,7 @@
             android:label="@string/title_activity_main3"
             android:theme="@style/Theme.Compose" />
         <activity
-            android:name=".view.MainActivity2"
+            android:name=".view.PostData"
             android:exported="false"
             android:theme="@style/Theme.Compose" />
         <activity

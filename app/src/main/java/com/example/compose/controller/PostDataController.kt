@@ -1,7 +1,9 @@
 package com.example.compose.controller
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.widget.Toast
+import androidx.activity.OnBackPressedDispatcher
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -11,9 +13,16 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
+import androidx.compose.material.TopAppBar
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -31,11 +40,45 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.compose.model.PostDataModel
 import com.example.compose.model.UserApi
+import com.example.compose.ui.theme.customButtonColors
+import com.example.compose.ui.theme.customTextFieldColors
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
+
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+@Composable
+fun PostDataTheme (onBackPressedDispatcher: OnBackPressedDispatcher){
+    Surface(
+        modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
+    ) {
+        Scaffold(
+            topBar = {
+
+                TopAppBar(backgroundColor = Color(android.graphics.Color.parseColor("#D81B60")),
+                    title = {
+                        Text(
+                            text = "Post Data",
+
+                            modifier = Modifier.fillMaxWidth(),
+
+                            color = Color.White
+                        )
+                    },
+                    navigationIcon = {
+                        IconButton(onClick = { onBackPressedDispatcher.onBackPressed() }) {
+                            Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = Color.White)
+                        }
+                    },)
+            }) {
+            postData()
+        }
+    }
+}
+
 
 @Composable
 fun postData() {
@@ -140,14 +183,14 @@ private fun postDataUsingRetrofit(
     val dataModel = PostDataModel(userName.value.text, job.value.text)
     val call: Call<PostDataModel?>? = retrofitAPI.postData(dataModel)
     call!!.enqueue(object : Callback<PostDataModel?> {
-        override fun onResponse(call: Call<PostDataModel?>?, response: Response<PostDataModel?>) {
+        override fun onResponse(call: Call<PostDataModel?>, response: Response<PostDataModel?>) {
             Toast.makeText(ctx, "Data posted to API", Toast.LENGTH_SHORT).show()
             val model: PostDataModel? = response.body()
-            val resp =  "User Name : " + model!!.name + "\n" + "Job : " + model!!.job
+            val resp =  "User Name : " + model!!.name + "\n" + "Job : " + model.job
             result.value = resp
         }
 
-        override fun onFailure(call: Call<PostDataModel?>?, t: Throwable) {
+        override fun onFailure(call: Call<PostDataModel?>, t: Throwable) {
             result.value = "Error found is : " + t.message
         }
     })

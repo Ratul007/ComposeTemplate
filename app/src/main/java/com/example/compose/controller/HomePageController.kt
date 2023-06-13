@@ -38,9 +38,9 @@ import com.example.compose.controller.DrawerBody
 import com.example.compose.controller.DrawerHeader
 import com.example.compose.view.BottomNavigation
 import com.example.compose.model.MenuItem
-import com.example.compose.view.MainActivity2
 import com.example.compose.view.MainActivity3
 import com.example.compose.view.MainActivity4
+import com.example.compose.view.PostData
 import kotlinx.coroutines.launch
 
 @Composable
@@ -60,7 +60,7 @@ fun layoutData() {
         ) {
             item {
                 CardView(title = "A", subtitle = "Post Data", onClick = {
-                    context.startActivity(Intent(context, MainActivity2::class.java))
+                    context.startActivity(Intent(context, PostData::class.java))
                 })
                 Spacer(modifier = Modifier.height(20.dp))
             }

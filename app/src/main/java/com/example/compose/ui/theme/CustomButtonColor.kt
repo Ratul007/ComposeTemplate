@@ -1,4 +1,4 @@
-package com.example.compose.controller
+package com.example.compose.ui.theme
 
 import androidx.compose.material.ButtonColors
 import androidx.compose.material.ButtonDefaults
