@@ -2,7 +2,6 @@ package com.example.compose.controller
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -13,7 +12,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.compose.model.BottomNavItem
-import com.example.compose.ui.theme.ComposeTheme
 
 
 @Composable
@@ -33,7 +31,7 @@ fun NavigationSetup(navController: NavHostController) {
 fun HomeScreen() {
         Surface(
             modifier = Modifier.fillMaxSize(),
-            color = Color.LightGray
+            color = Color.Green
         ) {
             Box(
                 modifier = Modifier.fillMaxSize(),
@@ -49,7 +47,7 @@ fun HomeScreen() {
 fun SettingsScreen() {
         Surface(
             modifier = Modifier.fillMaxSize(),
-            color = Color.Gray
+            color = Color.Red
         ) {
             Box(
                 modifier = Modifier.fillMaxSize(),

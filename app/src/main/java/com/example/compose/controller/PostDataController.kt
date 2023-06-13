@@ -29,7 +29,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.compose.view.DataModel
+import com.example.compose.model.PostDataModel
 import com.example.compose.model.UserApi
 import retrofit2.Call
 import retrofit2.Callback
@@ -137,17 +137,17 @@ private fun postDataUsingRetrofit(
         .build()
 
     val retrofitAPI = retrofit.create(UserApi::class.java)
-    val dataModel = DataModel(userName.value.text, job.value.text)
-    val call: Call<DataModel?>? = retrofitAPI.postData(dataModel)
-    call!!.enqueue(object : Callback<DataModel?> {
-        override fun onResponse(call: Call<DataModel?>?, response: Response<DataModel?>) {
+    val dataModel = PostDataModel(userName.value.text, job.value.text)
+    val call: Call<PostDataModel?>? = retrofitAPI.postData(dataModel)
+    call!!.enqueue(object : Callback<PostDataModel?> {
+        override fun onResponse(call: Call<PostDataModel?>?, response: Response<PostDataModel?>) {
             Toast.makeText(ctx, "Data posted to API", Toast.LENGTH_SHORT).show()
-            val model: DataModel? = response.body()
+            val model: PostDataModel? = response.body()
             val resp =  "User Name : " + model!!.name + "\n" + "Job : " + model!!.job
             result.value = resp
         }
 
-        override fun onFailure(call: Call<DataModel?>?, t: Throwable) {
+        override fun onFailure(call: Call<PostDataModel?>?, t: Throwable) {
             result.value = "Error found is : " + t.message
         }
     })

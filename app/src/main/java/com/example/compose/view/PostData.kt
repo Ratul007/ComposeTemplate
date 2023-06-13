@@ -35,13 +35,6 @@ class MainActivity2 : ComponentActivity() {
         }
     }
 
-
-
-data class DataModel(
-    var name: String,
-    var job: String
-)
-
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun NewCanaryProjectTheme (onBackPressedDispatcher: OnBackPressedDispatcher){

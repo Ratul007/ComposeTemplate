@@ -6,6 +6,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -24,7 +25,7 @@ fun BottomNavigationBar(
 
     BottomNavigation(
         // Set the background color of the BottomNavigation
-        backgroundColor = StatusBarColor
+        backgroundColor = Color.White
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route

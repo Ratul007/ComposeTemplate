@@ -10,6 +10,6 @@
     <string name="title_activity_main_activity5.kt">MainActivity5.kt</string>
     <string name="title_activity_splash_screen1">SplashScreen1</string>
     <string name="title_activity_splash">SplashActivity</string>
-    <string name="screen_title_home" />
-    <string name="screen_title_settings" />
+    <string name="screen_title_home" > Home </string>
+    <string name="screen_title_settings" >Settings</string>
 </resources>
