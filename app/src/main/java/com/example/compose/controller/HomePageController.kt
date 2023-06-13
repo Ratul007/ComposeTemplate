@@ -103,7 +103,7 @@ fun layoutData() {
 fun CardView(title: String, subtitle: String, onClick: () -> Unit) {
     Card(
         modifier = Modifier
-            .height(300.dp)
+            .height(200.dp)
             .width(300.dp)
             .clickable { onClick.invoke() },
         backgroundColor = Color.LightGray,
