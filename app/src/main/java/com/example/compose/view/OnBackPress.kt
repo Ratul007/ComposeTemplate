@@ -1,9 +1,9 @@
 package com.example.compose.view
 
+import TopAndNavigationBarBackButton
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import topAndNavigationBarBackButton
 
 class MainActivity3 : ComponentActivity() {
 
@@ -12,7 +12,7 @@ class MainActivity3 : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
 
-            topAndNavigationBarBackButton(onBackPressedDispatcher)
+            TopAndNavigationBarBackButton(onBackPressedDispatcher)
         }
     }
 }

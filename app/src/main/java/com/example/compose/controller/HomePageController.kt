@@ -137,7 +137,7 @@ fun CardView(title: String, subtitle: String, onClick: () -> Unit) {
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Preview
 @Composable
-fun topAndNavigationBar() {
+fun TopAndNavigationBar() {
 
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()

@@ -1,5 +1,6 @@
 package com.example.compose.view
 
+import TopAndNavigationBar
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
@@ -36,7 +37,6 @@ import com.example.compose.controller.DrawerHeader
 import com.example.compose.model.MenuItem
 import kotlinx.coroutines.delay
 import layoutData
-import topAndNavigationBar
 
 class MainActivity : ComponentActivity() {
 
@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         installSplashScreen()
         setContent {
-           topAndNavigationBar()
+           TopAndNavigationBar()
 
         }
     }

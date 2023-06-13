@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.sp
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun topAndNavigationBarBackButton(onBackPressedDispatcher: OnBackPressedDispatcher) {
+fun TopAndNavigationBarBackButton(onBackPressedDispatcher: OnBackPressedDispatcher) {
     Scaffold(
         topBar = {
             TopAppBar(
