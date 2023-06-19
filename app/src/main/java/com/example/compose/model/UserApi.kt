@@ -1,7 +1,7 @@
 package com.example.compose.model
 
 
-import com.example.compose.view.DataModel
+
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Response
@@ -15,5 +15,5 @@ interface UserApi {
     // and along with that we are passing a parameter as users
     @POST("users")
     fun  // on below line we are creating a method to post our data.
-            postData(@Body dataModel: DataModel?): Call<DataModel?>?
+            postData(@Body dataModel: PostDataModel?): Call<PostDataModel?>?
 }
