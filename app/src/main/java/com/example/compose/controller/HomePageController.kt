@@ -39,9 +39,9 @@ import com.example.compose.controller.DrawerHeader
 import com.example.compose.view.BottomNavigation
 import com.example.compose.model.MenuItem
 import com.example.compose.view.MainActivity3
-import com.example.compose.view.MainActivity4
 import com.example.compose.view.PostData
 import kotlinx.coroutines.launch
+import retrofit2.Retrofit
 
 @Composable
 fun layoutData() {
@@ -72,7 +72,7 @@ fun layoutData() {
             }
             item {
                 CardView(title = "C", subtitle = "Retrofit Api", onClick = {
-                    context.startActivity(Intent(context, MainActivity4::class.java))
+                    context.startActivity(Intent(context, Retrofit::class.java))
                 })
                 Spacer(modifier = Modifier.height(20.dp))
             }
@@ -134,62 +134,7 @@ fun CardView(title: String, subtitle: String, onClick: () -> Unit) {
 }
 
 
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
-@Preview
-@Composable
-fun TopAndNavigationBar() {
 
-    val scaffoldState = rememberScaffoldState()
-    val scope = rememberCoroutineScope()
-
-    Scaffold(
-        scaffoldState = scaffoldState,
-        topBar = {
-            AppBar(title = "HomePage",
-                onNavigationIconClick = {
-                    scope.launch {
-                        scaffoldState.drawerState.open()
-                    }
-                }
-            )
-        },
-        content = {
-
-            layoutData()
-
-        },
-
-        drawerGesturesEnabled = scaffoldState.drawerState.isOpen,
-        drawerContent = {
-            DrawerHeader()
-            DrawerBody(
-                items = listOf(
-                    MenuItem(
-                        id = "home",
-                        title = "Home",
-                        contentDescription = "Go to home screen",
-                        icon = Icons.Default.Home
-                    ),
-                    MenuItem(
-                        id = "settings",
-                        title = "Settings",
-                        contentDescription = "Go to settings screen",
-                        icon = Icons.Default.Settings
-                    ),
-                    MenuItem(
-                        id = "help",
-                        title = "Help",
-                        contentDescription = "Get help",
-                        icon = Icons.Default.Info
-                    ),
-                ),
-                onItemClick = {
-                    println("Clicked on ${it.title}")
-                }
-            )
-        }
-    )
-}
 
 /*
 @Composable
