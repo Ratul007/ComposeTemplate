@@ -15,6 +15,10 @@ import com.example.compose.ui.theme.Pink80
 import com.example.compose.ui.theme.StatusBarColor
 
 @Composable
+
+
+/*THIS IS COMPLEX NAVIGATION SEE GEOMELODY FOR SIMPLE NAVIGATION*/
+
 fun BottomNavigationBar(
     navController: NavController
 ) {

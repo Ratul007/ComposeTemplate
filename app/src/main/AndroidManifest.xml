@@ -20,15 +20,6 @@
             android:label="@string/title_activity_main_activity5.kt"
             android:theme="@style/Theme.Compose" />
         <activity
-            android:name=".view.MainActivity4"
-            android:exported="false"
-            android:label="title_activity_main4"
-            android:theme="@style/Theme.Compose">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".model.MenuItem"
             android:exported="false"
             android:label="@string/title_activity_menu_item"

@@ -8,7 +8,7 @@
 
     <style name="Theme.Splash" parent="Theme.SplashScreen">
         <item name="android:windowSplashScreenBackground">@color/white</item>
-        <item name="android:windowSplashScreenAnimatedIcon">@drawable/skullboy</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/lottie</item>
         <item name="android:windowSplashScreenAnimationDuration">5000</item>
         <item name="postSplashScreenTheme">@style/Theme.Compose</item>
     </style>
