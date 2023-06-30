@@ -1,12 +1,14 @@
 package com.example.compose.view
 
 import android.annotation.SuppressLint
+import android.content.Context
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedDispatcher
 import androidx.compose.foundation.layout.*
@@ -14,6 +16,7 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -27,11 +30,13 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.compose.controller.postDataUsingRetrofit
+import com.example.compose.model.PostDataModel
+import com.example.compose.model.UserApi
 import com.example.compose.ui.theme.customButtonColors
 import com.example.compose.ui.theme.customTextFieldColors
 
 import retrofit2.*
+import retrofit2.converter.gson.GsonConverterFactory
 
 class PostData : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -164,9 +169,36 @@ fun Postdata() {
     }
 }
 
+fun postDataUsingRetrofit(
+    ctx: Context,
+    userName: MutableState<TextFieldValue>,
+    job: MutableState<TextFieldValue>,
+    result: MutableState<String>
+) {
+    val url = "https://reqres.in/api/"
 
+    val retrofit = Retrofit.Builder()
+        .baseUrl(url)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
 
+    val retrofitAPI = retrofit.create(UserApi::class.java)
+    val dataModel = PostDataModel(userName.value.text, job.value.text)
+    val call: Call<PostDataModel?>? = retrofitAPI.postData(dataModel)
+    call!!.enqueue(object : Callback<PostDataModel?> {
+        override fun onResponse(call: Call<PostDataModel?>, response: Response<PostDataModel?>) {
+            Toast.makeText(ctx, "Data posted to API", Toast.LENGTH_SHORT).show()
+            val model: PostDataModel? = response.body()
+            val resp = "User Name : " + model!!.name + "\n" + "Job : " + model.job
+            result.value = resp
+        }
 
+        override fun onFailure(call: Call<PostDataModel?>, t: Throwable) {
+            result.value = "Error found is : " + t.message
+        }
+    })
+
+}
 
 
 

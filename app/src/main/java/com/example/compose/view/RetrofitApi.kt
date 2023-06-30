@@ -11,6 +11,7 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -23,10 +24,16 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.compose.controller.sendRequest
 import com.example.compose.model.ProfileModel
+import com.example.compose.model.UserApiSea
+import com.example.compose.model.UserModel
 import com.example.compose.ui.theme.customButtonColors
 import com.example.compose.ui.theme.customTextFieldColors
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitApi : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -129,10 +136,10 @@ fun RetroFitScreen(onBackPressedDispatcher: OnBackPressedDispatcher) {
                         Button(
                             colors = customButtonColors(),
                             onClick = {
-                                val data = sendRequest(
+                                /*val data = SendRequest(
                                     id = id.value.text,
                                     profileState = profile
-                                )
+                                )*/
 
                                 Log.d("Main Activity", profile.toString())
                             },
@@ -185,5 +192,32 @@ fun RetroFitScreen(onBackPressedDispatcher: OnBackPressedDispatcher) {
             }
         }
     )
+}
+
+fun SendRequest(
+    id: String,
+    profileState: MutableState<ProfileModel>
+) {
+    val retrofit = Retrofit.Builder()
+        .baseUrl("http://192.168.183.106:3000/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    val api = retrofit.create(UserApiSea::class.java)
+
+    val call: Call<UserModel?>? = api.getUserById(id);
+
+    call!!.enqueue(object : Callback<UserModel?> {
+        override fun onResponse(call: Call<UserModel?>, response: Response<UserModel?>) {
+            if (response.isSuccessful) {
+                Log.d("Main", "success!" + response.body().toString())
+                profileState.value = response.body()!!.profile
+            }
+        }
+
+        override fun onFailure(call: Call<UserModel?>, t: Throwable) {
+            Log.e("Main", "Failed mate " + t.message.toString())
+        }
+    })
 }
 

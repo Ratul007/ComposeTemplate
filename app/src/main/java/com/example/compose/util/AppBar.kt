@@ -1,4 +1,4 @@
-package com.example.compose.controller
+package com.example.compose.util
 
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons

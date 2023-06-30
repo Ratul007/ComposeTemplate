@@ -1,4 +1,4 @@
-package com.example.compose.controller
+package com.example.compose.bottom_navigation
 
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -11,8 +11,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.compose.model.BottomNavItem
-import com.example.compose.ui.theme.Pink80
-import com.example.compose.ui.theme.StatusBarColor
 
 @Composable
 

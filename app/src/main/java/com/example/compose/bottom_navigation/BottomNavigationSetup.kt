@@ -1,4 +1,4 @@
-package com.example.compose.controller
+package com.example.compose.bottom_navigation
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

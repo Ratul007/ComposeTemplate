@@ -1,4 +1,4 @@
-package com.example.compose.view
+package com.example.compose.bottom_navigation
 
 
 import android.annotation.SuppressLint
@@ -17,8 +17,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.rememberNavController
-import com.example.compose.controller.BottomNavigationBar
-import com.example.compose.controller.NavigationSetup
 
 class BottomNavigation : ComponentActivity() {
 
