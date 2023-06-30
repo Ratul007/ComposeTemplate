@@ -43,11 +43,21 @@ import androidx.compose.material.Card
 import androidx.compose.material.Text
 import com.example.compose.util.DrawerBody
 import com.example.compose.util.DrawerHeader
-import retrofit2.Retrofit
-
+import android.content.Context
+import android.content.SharedPreferences
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.example.compose.model.NavGraph
+import com.example.compose.onboarding.OnBoarding
+import com.google.accompanist.pager.ExperimentalPagerApi
 
 
 class MainActivity : ComponentActivity() {
+
+    //***NAVIGATION***
+    lateinit var navController: NavHostController
+
 
     /*override fun onBackPressed() {
         super.onBackPressedDispatcher.onBackPressed()
@@ -59,7 +69,9 @@ class MainActivity : ComponentActivity() {
         setContent {
 
 
-           HomePage()
+            //***NAVIGATION***
+            navController = rememberNavController()
+            NavGraph(navController = navController)
 
         }
     }
@@ -86,7 +98,7 @@ fun HomePage() {
         },
         content = {
 
-            layoutData()
+            LayoutData()
 
         },
 
@@ -123,7 +135,7 @@ fun HomePage() {
 }
 
 @Composable
-fun layoutData() {
+fun LayoutData() {
 
     val context = LocalContext.current
 
