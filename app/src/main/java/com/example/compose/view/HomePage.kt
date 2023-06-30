@@ -2,33 +2,9 @@ package com.example.compose.view
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
-import kotlinx.coroutines.launch
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Settings
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.example.compose.model.MenuItem
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -39,43 +15,32 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.rememberScaffoldState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.example.compose.bottom_navigation.BottomNavigation
+import com.example.compose.model.MenuItem
+import com.example.compose.util.AppBar
 import com.example.compose.util.DrawerBody
 import com.example.compose.util.DrawerHeader
-import android.content.Context
-import android.content.SharedPreferences
-import androidx.navigation.NavController
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
-import com.example.compose.model.NavGraph
-import com.example.compose.onboarding.OnBoarding
-import com.google.accompanist.pager.ExperimentalPagerApi
-
-
-class MainActivity : ComponentActivity() {
-
-    //***NAVIGATION***
-    lateinit var navController: NavHostController
-
-
-    /*override fun onBackPressed() {
-        super.onBackPressedDispatcher.onBackPressed()
-        finish() // Close the activity
-    }*/
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        installSplashScreen()
-        setContent {
-
-
-            //***NAVIGATION***
-            navController = rememberNavController()
-            NavGraph(navController = navController)
-
-        }
-    }
-}
+import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Preview
@@ -88,7 +53,7 @@ fun HomePage() {
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = {
-            com.example.compose.util.AppBar(title = "HomePage",
+            AppBar(title = "HomePage",
                 onNavigationIconClick = {
                     scope.launch {
                         scaffoldState.drawerState.open()
@@ -169,7 +134,7 @@ fun LayoutData() {
             }
             item {
                 CardView(title = "D", subtitle = "Bottom Navigation", onClick = {
-                    context.startActivity(Intent(context, com.example.compose.bottom_navigation.BottomNavigation::class.java))
+                    context.startActivity(Intent(context, BottomNavigation::class.java))
                 })
                 Spacer(modifier = Modifier.height(20.dp))
             }
@@ -212,20 +177,14 @@ fun CardView(title: String, subtitle: String, onClick: () -> Unit) {
         ) {
             Text(
                 text = title,
-                style = androidx.compose.material.MaterialTheme.typography.h6,
+                style = MaterialTheme.typography.h6,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(8.dp),
             )
             Text(
                 text = subtitle,
-                style = androidx.compose.material.MaterialTheme.typography.body1,
+                style = MaterialTheme.typography.body1,
             )
         }
     }
 }
-
-
-
-
-
-
