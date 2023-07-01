@@ -1,4 +1,4 @@
-package com.example.compose.view
+package com.example.compose.postdata
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -30,8 +30,6 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.compose.model.PostDataModel
-import com.example.compose.model.UserApi
 import com.example.compose.ui.theme.customButtonColors
 import com.example.compose.ui.theme.customTextFieldColors
 

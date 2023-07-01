@@ -1,4 +1,4 @@
-package com.example.compose.model
+package com.example.compose.bottom_navigation
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons

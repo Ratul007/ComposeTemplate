@@ -1,4 +1,4 @@
-package com.example.compose.model
+package com.example.compose.bottom_navigation
 
 sealed class BottomScreen(val route: String) {
     object Home : BottomScreen("home_screen")

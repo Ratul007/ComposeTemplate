@@ -1,4 +1,4 @@
-package com.example.compose.view
+package com.example.compose.main_activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -36,10 +36,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.compose.bottom_navigation.BottomNavigation
-import com.example.compose.model.MenuItem
+import com.example.compose.util.navigation_drawer.MenuItem
+import com.example.compose.onbackpress.MainActivity3
+import com.example.compose.postdata.PostData
+import com.example.compose.retrofitapi.RetrofitApi
 import com.example.compose.util.AppBar
-import com.example.compose.util.DrawerBody
-import com.example.compose.util.DrawerHeader
+import com.example.compose.util.navigation_drawer.DrawerBody
+import com.example.compose.util.navigation_drawer.DrawerHeader
 import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")

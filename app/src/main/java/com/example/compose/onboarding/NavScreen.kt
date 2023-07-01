@@ -1,4 +1,4 @@
-package com.example.compose.model
+package com.example.compose.onboarding
 
 sealed class NavScreen(val route: String) {
     object OnBoarding : NavScreen("on_boarding")

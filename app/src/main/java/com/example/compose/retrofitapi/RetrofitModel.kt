@@ -1,4 +1,4 @@
-package com.example.compose.model
+package com.example.compose.retrofitapi
 
 data class ProfileModel(
     var age: String,

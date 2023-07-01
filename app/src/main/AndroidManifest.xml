@@ -12,7 +12,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Compose"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:targetApi="s">
 
         <activity
             android:name=".bottom_navigation.BottomNavigation"
@@ -20,21 +21,21 @@
             android:label="@string/title_activity_main_activity5.kt"
             android:theme="@style/Theme.Compose" />
         <activity
-            android:name=".model.MenuItem"
+            android:name=".util.navigation_drawer.MenuItem"
             android:exported="false"
             android:label="@string/title_activity_menu_item"
             android:theme="@style/Theme.Compose" />
         <activity
-            android:name=".view.RetrofitApi"
+            android:name=".retrofitapi.RetrofitApi"
             android:exported="false"
             android:label="@string/title_activity_main3"
             android:theme="@style/Theme.Compose" />
         <activity
-            android:name=".view.PostData"
+            android:name=".postdata.PostData"
             android:exported="false"
             android:theme="@style/Theme.Compose" />
         <activity
-            android:name=".view.MainActivity"
+            android:name=".main_activity.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Splash">
 

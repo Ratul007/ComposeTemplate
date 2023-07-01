@@ -1,6 +1,7 @@
-package com.example.compose.model
+package com.example.compose.retrofitapi
 
 
+import com.example.compose.retrofitapi.UserModel
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers

@@ -1,4 +1,4 @@
-package com.example.compose.view
+package com.example.compose.main_activity
 
 
 import android.os.Bundle
@@ -7,7 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.compose.model.NavGraph
+import com.example.compose.onboarding.NavGraph
 
 
 class MainActivity : ComponentActivity() {
