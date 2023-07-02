@@ -18,12 +18,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
-import coil.compose.rememberImagePainter
 
 
 @Composable
@@ -31,7 +29,9 @@ fun Department(departmentViewModel: DepartmentViewModel = viewModel()) {
     val departmentsState = departmentViewModel.departmentsState
 
 
-    Box(modifier = Modifier.fillMaxSize().background(color = Color.White)) {
+    Box(modifier = Modifier
+        .fillMaxSize()
+        .background(color = Color.White)) {
         LazyColumn {
             items(departmentsState.value) { department ->
                 Column(
@@ -48,7 +48,7 @@ fun Department(departmentViewModel: DepartmentViewModel = viewModel()) {
 
                     // Display department image
                     Image(
-                        painter =  rememberImagePainter(data = department.dept_image),
+                        painter =  rememberAsyncImagePainter(model = "https://doctorhelpcare.com/uploads/department/"+department.dept_image),
                         contentDescription = null,
                         modifier = Modifier
                             .fillMaxWidth()
@@ -61,6 +61,7 @@ fun Department(departmentViewModel: DepartmentViewModel = viewModel()) {
     }
 
 }
+
 
 
 
