@@ -4,5 +4,5 @@ import retrofit2.http.GET
 
 interface DepartmentApiService {
     @GET("department")
-    suspend fun getDepartments(): DepartmentListModel
+    suspend fun getDepartments(): List<DepartmentModel>
 }

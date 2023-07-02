@@ -1,5 +1,6 @@
 package com.example.compose.retrofitapi
 
+import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -18,9 +19,10 @@ class DepartmentViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val response = DepartmentInstance().departmentApiService.getDepartments()
-                _departmentsState.value = response.departments
+                _departmentsState.value = response.toList()
+                Log.e("DepartmentViewModel", "Success")
             } catch (e: Exception) {
-                // Handle error
+                Log.e("DepartmentViewModel", "Error")
             }
         }
     }

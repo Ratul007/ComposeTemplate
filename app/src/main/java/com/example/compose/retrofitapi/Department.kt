@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
+import coil.compose.rememberImagePainter
 
 
 @Composable
@@ -47,7 +48,7 @@ fun Department(departmentViewModel: DepartmentViewModel = viewModel()) {
 
                     // Display department image
                     Image(
-                        painter =  rememberAsyncImagePainter(model = department.dept_image),
+                        painter =  rememberImagePainter(data = department.dept_image),
                         contentDescription = null,
                         modifier = Modifier
                             .fillMaxWidth()
@@ -61,13 +62,5 @@ fun Department(departmentViewModel: DepartmentViewModel = viewModel()) {
 
 }
 
-
-
-@Composable
-@Preview( )
-fun TestView(){
-
-    Department()
-}
 
 
