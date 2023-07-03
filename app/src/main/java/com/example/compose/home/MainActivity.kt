@@ -1,4 +1,4 @@
-package com.example.compose.main_activity
+package com.example.compose.home
 
 
 import android.os.Bundle
