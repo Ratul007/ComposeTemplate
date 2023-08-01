@@ -305,7 +305,7 @@ fun  UpdateTransitionAnimation(){
         )
 
         // Set animation state value to another state to trigger the animation
-        animationTargetState.value = AnimationState.END
+        animationTargetState.value = AnimationState.END//
     }
 
 }
