@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
@@ -25,7 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 
-class MainActivity3 : ComponentActivity() {
+class OnBackPress : ComponentActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,7 +72,7 @@ fun OnBackPressView(onBackPressedDispatcher: OnBackPressedDispatcher) {
             Text(
                 text = "OnBackPress",
                 color = Color(android.graphics.Color.parseColor("#D81B60")),
-                style = MaterialTheme.typography.h3,
+                style = androidx.compose.material.MaterialTheme.typography.h3,
                 fontFamily = FontFamily.Default,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center
@@ -81,13 +80,5 @@ fun OnBackPressView(onBackPressedDispatcher: OnBackPressedDispatcher) {
         }
     }
 }
-
-
-
-
-
-
-
-
 
 

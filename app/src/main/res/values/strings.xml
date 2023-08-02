@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Compose</string>
-    <string name="title_activity_main3">MainActivity3</string>
+    <string name="title_activity_main3">Retrofit</string>
     <string name="title_activity_menu_item">MenuItem</string>
     <string name="title_activity_main4">MainActivity4</string>
     <string name="title_activity_main5">MainActivity5</string>
@@ -22,4 +22,5 @@
     <string name="onBoardingText3">Most beginner producers learn make \n creating by simple beats</string>
     <string name="title_activity_animation">Animation</string>
     <string name="title_activity_basic_animation">BasicAnimation</string>
+    <string name="title_activity_on_back_press">OnBackPress</string>
 </resources>

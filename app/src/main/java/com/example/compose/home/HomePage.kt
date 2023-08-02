@@ -38,8 +38,8 @@ import androidx.compose.ui.unit.dp
 import com.example.compose.animation.Animation
 import com.example.compose.animation.BasicAnimation
 import com.example.compose.bottom_navigation.BottomNavigation
+import com.example.compose.onbackpress.OnBackPress
 import com.example.compose.util.navigation_drawer.MenuItem
-import com.example.compose.onbackpress.MainActivity3
 import com.example.compose.postdata.PostData
 import com.example.compose.retrofitapi.RetrofitApi
 import com.example.compose.util.AppBar
@@ -127,7 +127,7 @@ fun LayoutData() {
             }
             item {
                 CardView(title = "B", subtitle = "OnBackPress", onClick = {
-                    context.startActivity(Intent(context, MainActivity3::class.java))
+                    context.startActivity(Intent(context, OnBackPress::class.java))
                 })
                 Spacer(modifier = Modifier.height(20.dp))
             }
