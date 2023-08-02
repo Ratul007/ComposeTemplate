@@ -13,7 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Compose"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".animation.BasicAnimation"
+            android:exported="false"
+            android:label="@string/title_activity_basic_animation"
+            android:theme="@style/Theme.Compose" />
+        <activity
+            android:name=".animation.Animation"
+            android:exported="false"
+            android:label="@string/title_activity_animation"
+            android:theme="@style/Theme.Compose" />
         <activity
             android:name=".bottom_navigation.BottomNavigation"
             android:exported="false"
@@ -37,13 +46,11 @@
             android:name=".home.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Splash">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

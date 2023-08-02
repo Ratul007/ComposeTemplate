@@ -35,6 +35,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.compose.animation.Animation
+import com.example.compose.animation.BasicAnimation
 import com.example.compose.bottom_navigation.BottomNavigation
 import com.example.compose.util.navigation_drawer.MenuItem
 import com.example.compose.onbackpress.MainActivity3
@@ -142,14 +144,14 @@ fun LayoutData() {
                 Spacer(modifier = Modifier.height(20.dp))
             }
             item {
-                CardView(title = "E", subtitle = "Bajaj", onClick = {
-
+                CardView(title = "E", subtitle = "Animation", onClick = {
+                    context.startActivity(Intent(context, Animation::class.java))
                 })
                 Spacer(modifier = Modifier.height(20.dp))
             }
             item {
-                CardView(title = "F", subtitle = "Casio", onClick = {
-
+                CardView(title = "F", subtitle = "Basic Animation", onClick = {
+                    context.startActivity(Intent(context, BasicAnimation::class.java))
                 })
                 Spacer(modifier = Modifier.height(20.dp))
             }
